@@ -107,7 +107,7 @@
     function sendmsg() {
           var rawText = $("#inputText").val();
           console.log(rawText)
-          var userHtml = '<p class="userText"><span>' + rawText + "</span></p>";
+          var userHtml = '<p class="userText p-2 ms-3 mb-1 rounded-3"><span>' + rawText + "</span></p>";
           $("#inputText").val("");
           $("#chatbox").append(userHtml);
           document.getElementById("userInput").scrollIntoView({
@@ -121,7 +121,7 @@
             type: "POST",
             url: "/get",
           }).done(function (data) {
-            var botHtml = '<p class="botText"><span>' + data + "</span></p>";
+            var botHtml = '<p class="botText p-2 ms-3 mb-1 rounded-3"><span>' + data + "</span></p>";
             $("#chatbox").append($.parseHTML(botHtml));
             document.getElementById("userInput").scrollIntoView({
               block: "start",
