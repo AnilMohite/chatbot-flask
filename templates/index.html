@@ -104,6 +104,13 @@
     </section>
 
     <script>
+      $(document).ready(function(){
+        $("#inputText").keydown(function (event) { 
+         if (event.which == 13) { 
+            sendmsg();
+         } 
+        });
+    });
     function sendmsg() {
           var rawText = $("#inputText").val();
           console.log(rawText)
@@ -121,14 +128,13 @@
             type: "POST",
             url: "/get",
           }).done(function (data) {
-            var botHtml = '<p class="botText p-2 ms-3 mb-1 rounded-3"><span>' + data + "</span></p>";
-            $("#chatbox").append($.parseHTML(botHtml));
-            document.getElementById("userInput").scrollIntoView({
-              block: "start",
-              behavior: "smooth",
-            });
-          });
-          event.preventDefault();
+              var botHtml = '<p class="botText p-2 ms-3 mb-1 rounded-3"><span>' + data + "</span></p>";
+              $("#chatbox").append($.parseHTML(botHtml));
+              document.getElementById("userInput").scrollIntoView({
+                block: "start",
+                behavior: "smooth",
+              });
+          });          
         }
     </script>
   </body>
